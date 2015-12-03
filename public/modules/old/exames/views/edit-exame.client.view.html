@@ -1,0 +1,50 @@
+<section data-ng-controller="ExamesController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1 data-ng-bind="exame.name"></h1>
+    </div>
+    <div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == exame.user._id))">
+        <a class="btn btn-primary" href="/#!/exames/{{exame._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn btn-primary" data-ng-click="remove();">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+    </div>
+    <small>
+        <em class="text-muted">
+            Posted on
+            <span data-ng-bind="exame.created | date:'mediumDate'"></span>
+            by
+            <span data-ng-bind="exame.user.displayName"></spanz>
+        </em>
+    </small>
+
+<div class="row">
+    <!-- <form> -->
+    <div  class="panel panel-primary">
+        <div class="panel-heading">
+        <span data-ng-bind="exame.disciplina.name"></span> <span data-ng-bind="exame.ano"></span>   <span data-ng-bind="exame.instruccoes"></span>
+        </div>
+                <div data-ng-repeat="pergunta in exame._perguntas" class="row">                       
+                    <div class="panel-body">
+                        <div class="ro panel">
+                            <span data-ng-bind="pergunta.texto" ></span>
+<!--                             <a class="btn btn-primary" href="/#!/exames/{{exame._id}}/edit">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </a> -->
+                            <a class="pull-right" data-ng-href="#!/perguntas/edit/{{pergunta._id}}"> editar</a>
+                        </div>
+                        <div data-ng-repeat="alternativa in pergunta._alternativas" class="ro">
+                           <input type="radio" data-ng-value="alternativa.id" > 
+                          <span data-ng-bind="alternativa.conteudo" > </span>
+                        </div>      
+                    </div>
+                </div>
+    </div>
+    <!-- <div ng-include src='"ajudas/create"'></div> -->
+
+<!--     <button type="submit" class="btn btn-primary"> submeter</button>
+    </form> -->
+
+</div
+</section>

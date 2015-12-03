@@ -1,0 +1,52 @@
+<section data-ng-controller="AjudasController" data-ng-init="listPerguntas()">
+    <div class="page-header">
+        <h1>Nova Ajuda</h1>
+    </div>
+    <div class="col-md-8 col-md-offset-2 panel">
+        <form class="form-horizontal espaco" data-ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="tipo">Tipo</label>
+                    <div class="controls">
+                        <select data-ng-model="tipo" id="tipo" class="form-control" placeholder="tipo" required>
+                            <option value="pagina">p&aacute;gina</option>
+                            <option value="video"> video</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                 <div class="form-group">
+                    <label class="control-label" for="titulo">Titulo</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="titulo" id="titulo" class="form-control" required>
+                    </div>
+                </div>
+                
+
+                <div class="form-group">
+                    <label class="control-label" for="conteudo">Conteudo</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="conteudo" id="conteudo" class="form-control" required>
+                    </div>
+                </div>
+
+                 
+                <div class="form-group">
+                        <label class="control-label" for="pergunta">Pergunta</label>
+                        <select ng-model="pergunta" ng-options="pergunta.texto for pergunta in perguntas track by pergunta._id">
+                          <option value="">-- Escolher pergunta --</option>
+                        </select>
+                    </div>
+
+                <div class="form-group">
+                    <button type="submit"  class="btn btn-primary"> Gravar</button>
+                    <button ng-click="limpaCampos" class="btn btn-warning"><span class=" glyphicon glyphicon-remove"></span> Limpar</button>
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>

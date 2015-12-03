@@ -1,0 +1,16 @@
+.panel{
+	//background-color: #F5F5F5;
+}
+
+body{
+background-color:#F5F5F5;
+}
+
+.espaco{
+	margin: 15px;
+}
+
+.linha{
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
+}

@@ -1,0 +1,16 @@
+<section data-ng-controller="MembrosController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="membro.nome"></h1>
+		<p data-ng-bind="membro.cargo"></p>
+		<p data-ng-bind="membro.username"></p>
+		<p data-ng-bind="membro.password"></p>
+	</div>
+	<div class="pull-right">
+		<a class="btn btn-primary" href="/#!/membros/{{membro._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+</section>

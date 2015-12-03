@@ -1,0 +1,27 @@
+<section data-ng-controller="ExamesController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="exame.ano"></h1>
+
+	      <p data-ng-bind="exame.disciplina.name"></p>
+		<!-- <p data-ng-bind="membro.cargo"></p>
+		<p data-ng-bind="membro.username"></p>
+		<p data-ng-bind="membro.password"></p> -->
+	</div>
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == exame.user._id))">
+		<a class="btn btn-primary" href="/#!/exames/{{tarefa._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+
+	<!-- <div class="pull-right">
+		<a class="btn btn-primary" href="/#!/exames/{{exame._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div> -->
+</section>

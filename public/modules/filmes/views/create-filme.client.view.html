@@ -1,0 +1,81 @@
+<section data-ng-controller="FilmesController">
+    <div class="page-header">
+        <h1>Novo Filme</h1>
+    </div>
+    <div class="col-md-8 col-md-offset-2 panel">
+        <form class="form-horizontal espaco" data-ng-submit="create()" novalidate>
+            <fieldset>
+                   <div class="form-group">
+                        <label class="control-label" for="titulo">Titulo</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="titulo" id="titulo" class="form-control" placeholder="Titulo" required>
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                        <label class="control-label" for="tipo">Tipo</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="tipo" id="tipo" class="form-control" placeholder="Tipo" required>
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                        <label class="control-label" for="descricao">Decricao</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="descricao" id="categoria" class="form-control" placeholder="Descricao do Evento (Ex: Festa, Palestra, Workshop, etc.)" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="local">Local</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="local" id="local" class="form-control" placeholder="Local" required>
+                        </div>
+                    </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="actor">Programa</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="actor" id="actor" class="form-control" placeholder="Autor do Filme" required="true">
+                        </textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="utente">Orador</label>
+                    <div class="controls">
+                        <select ng-model="utente" ng-options="utente.name for utente in utentes track by utente._id">
+                          <option value="">-------------------- Nome do Orador --------------------  </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="utente">Palestrante</label>
+                    <div class="controls">
+                        <select ng-model="utente" ng-options="utente.name for utente in utentes track by utente._id">
+                          <option value="">-------------------- Nome do Palestrante --------------------  </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="utente">Convidado</label>
+                    <div class="controls">
+                        <select ng-model="utente" ng-options="utente.name for utente in utentes track by utente._id">
+                          <option value="">-------------------- Nome do Convidado --------------------  </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"> Gravar</button>
+                    <button data-ng-click="limpaCampos" class="btn btn-warning"><span class=" glyphicon glyphicon-remove"></span> Limpar</button>
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

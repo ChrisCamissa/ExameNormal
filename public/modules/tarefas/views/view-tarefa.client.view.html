@@ -1,0 +1,25 @@
+<section data-ng-controller="TarefasController" data-ng-init="findOne()">
+
+	<div class="page-header">
+		<h1>
+			<span data-ng-bind="tarefa.titulo"></span>
+		</h1>
+
+		<ul class="list-group">
+			<li class="list-group-item">
+				Descriccao: <span data-ng-bind="tarefa.descriccao"></span>
+			</li>
+			<li class="list-group-item">
+				Data de fim: <span data-ng-bind="tarefa.prazo"></span>
+			</li>
+			<li class="list-group-item">
+				Faltam: <span data-ng-bind="tarefa.falta"></span>  para o fim do prazo
+			</li>
+			<span class="btn btn-primary pull-right" type="button">
+			  Membro: <a href="#!/membros/{{tarefa.membro._id}}"> <span data-ng-bind="tarefa.membro.nome"></span> </a>
+			</span>
+
+		</ul>
+	</div>
+
+</section>

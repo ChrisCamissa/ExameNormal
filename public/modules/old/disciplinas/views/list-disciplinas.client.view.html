@@ -1,0 +1,21 @@
+<section data-ng-controller="DisciplinasController" data-ng-init="find()">
+   <div class="page-header">
+        Disciplinas
+        <button class="btn btn-success pull-right" data-ng-click="direct()"><span class="glyphicon glyphicon-plus"></span> Nova Disciplina</button>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="disciplina in disciplinas" data-ng-href="#!/disciplinas/{{disciplina._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="disciplina.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="disciplina.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="disciplina.name"></h4>
+            <h4 class="list-group-item-heading" data-ng-bind="disciplina.plano"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!disciplinas.$resolved || disciplinas.length">
+    	Nenhuma disciplina registrada <a href="/#!/disciplinas/create">Registre uma </a>?
+    </div>
+</section>

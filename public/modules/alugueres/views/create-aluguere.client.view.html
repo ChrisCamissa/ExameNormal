@@ -1,0 +1,48 @@
+<section data-ng-controller="AlugueresController" data-ng-init="listaUtentesFilmes()">
+     <div class="page-header">
+        <h1>Aluguer de Filme</h1>
+    </div>
+    <div class="col-md-8 col-md-offset-2 panel">
+        <form class="form-horizontal espaco" data-ng-submit="create()" novalidate>
+            <fieldset>
+    <div class="col-md-8 col-md-offset-2 panel">
+        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+
+                <!--<div class="form-group">
+                    <label class="control-label" for="utente">Nome do Utente</label>
+                    <div class="controls">
+                        <select ng-model="utente" ng-options="utente.name for utente in utentes track by utente._id">
+                          <option value="">-------------------- Nome do Utente --------------------  </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label" for="filme">Filme a Alugar</label>
+                    <div class="controls">
+                        <select ng-model="filme" ng-options="filme.titulo for filme in filmes track by filme._id">
+                          <option value="">--------------------- Filme a Alugar ----------------------  </option>
+                        </select>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <label class="control-label" for="descricaoNatureza">Descricao da Natureza</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="descricaoNatureza" id="descricaoNatureza" class="form-control" placeholder="Descricao Da Natureza" required>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <button type="submit" class="btn btn-primary"> Alugar </button>
+                    <button data-ng-click="limpaCampos" class="btn btn-warning"><span class=" glyphicon glyphicon-remove"></span> Limpar</button>
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>
+

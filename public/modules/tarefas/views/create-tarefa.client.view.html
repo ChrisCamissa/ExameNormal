@@ -1,0 +1,47 @@
+<section data-ng-controller="TarefasController" data-ng-init="listaMembros()" >
+    <div class="page-header">
+        <h1>Nova tarefa</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Titulo</label>
+                    <div class="controls">
+                        <input type="text" name="titulo" data-ng-model="titulo" id="titulo" class="form-control" placeholder="Titulo" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Descriccao</label>
+                    <div class="controls">
+                        <textarea name="descriccao" data-ng-model="descriccao" id="descriccao" class="form-control" cols="30" rows="10" placeholder="Descriccao"></textarea>
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                        <select ng-model="membro" ng-options="membro.nome for membro in membros track by membro._id">
+                          <option value="">-- Escolher membro --</option>
+                        </select>
+                    </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="prazo">prazo</label>
+                    <div class="col-md-6">
+                        <p class="input-group">
+                          <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="prazo" ng-required="true" close-text="Close" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,46 @@
+<section data-ng-controller="PerguntasController" data-ng-init="listaExames()">
+    <div class="page-header">
+        <span class="txt-large">Nova Pergunta</span>
+
+    </div>
+    <div class="col-md-8 col-md-offset-2 panel">
+        <form class="form-horizontal espaco" data-ng-submit="create()" novalidate>
+            <fieldset>
+
+                <div class="form-group">
+                    <label class="control-label" for="texto">Texto</label>
+                    <div class="controls">
+                        <textarea type="text" data-ng-model="texto" id="texto" class="form-control" required >
+                        </textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="texto">Imagem</label>
+                    <div class="controls">
+                        <input type="file" data-ng-model="image" id="image" class="form-control" required >
+                        </textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label" for="exame">Exame</label>
+                    <div class="controls">
+                        <select ng-model="exame" ng-options="exame.ano for exame in exames track by exame._id">
+                          <option value="">-- Escolher exame --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="linha"> </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"> Gravar</button>
+                    <button ng-click="limpaCampos" class="btn btn-warning"><span class=" glyphicon glyphicon-remove"></span> Limpar</button>
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>

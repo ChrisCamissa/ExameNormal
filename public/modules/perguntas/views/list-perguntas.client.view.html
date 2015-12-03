@@ -1,0 +1,20 @@
+<section data-ng-controller="PerguntasController" data-ng-init="find()">
+    <div class="page-header">
+        Perguntas
+        <button class="btn btn-success pull-right" data-ng-click="direct()"><span class="glyphicon glyphicon-plus"></span> Nova pergunta</button>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="pergunta in perguntas" data-ng-href="#!/perguntas/{{pergunta._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="pergunta.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="pergunta.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="pergunta.texto"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!perguntas.$resolved || perguntas.length">
+    	No Perguntas yet, why don't you <a href="/#!/perguntas/create">create one</a>?
+    </div>
+</section>

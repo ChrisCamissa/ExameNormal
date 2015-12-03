@@ -1,0 +1,68 @@
+<section data-ng-controller="ExamesController" data-ng-init="listaDisciplinas()">
+    <div class="page-header">
+        <h1>Novo Exame</h1>
+    </div>
+    <div class="col-md-8 col-md-offset-2 panel">
+        <form class="form-horizontal espaco" data-ng-submit="create()" novalidate>
+            <fieldset>
+                  <div class="form-group">
+                    <label class="control-label" for="ano">Ano</label>
+                        <p class="input-group"> 
+                          <input type="text" class="form-control" ng-model="dt" 
+                          datepicker-popup="{{format}}" datepicker-options="{{datepickerOptions}}"
+                          is-open="opened" ng-focus="open($event)"
+                    date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"></input>
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="tempo">Tempo</label>
+                        <div class="controls">
+                            <input type="number" data-ng-model="tempo" id="tempo" class="form-control" placeholder="tempo(min)" required>
+                        </div>
+                    </div>
+
+<!--                 <div class="form-group">
+                    <label class="control-label" for="ano">Ano</label>
+<!--                     <div class="controls">
+                        <input type="number" data-ng-model="ano" id="ano" class="form-control" placeholder="Ano" required>
+                    </div> -->
+<!--                     <input type="text" class="form-control" ng-model="ano" 
+                           datepicker-popup="{{format}}" datepicker-options="{{datepickerOptions}}"
+                           is-open="opened" ng-focus="open($event)"
+                          date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
+                    </input> -
+                </div> -->
+                <div class="form-group">
+                    <label class="control-label" for="instruccoes">Instruc&ccedil;&otilde;es</label>
+                    <div class="controls">
+                        <textarea type="text" data-ng-model="instruccoes" id="instruccoes" class="form-control"required="true">
+                        </textarea>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="control-label" for="disciplina"> Disciplina</label>
+                    <div class="controls">
+                        <select ng-model="disciplina" ng-options="disciplina.name for disciplina in disciplinas track by disciplina._id">
+                          <option value="">-- Escolher disciplina --</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="linha"> </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"> Gravar</button>
+                    <button data-ng-click="limpaCampos" class="btn btn-warning"><span class=" glyphicon glyphicon-remove"></span> Limpar</button>
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>

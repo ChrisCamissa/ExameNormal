@@ -1,0 +1,40 @@
+<section data-ng-controller="ExamesController" data-ng-init="find()">
+    <div class="page-header">
+        Exames
+        <button class="btn btn-success pull-right" data-ng-click="direct()"><span class="glyphicon glyphicon-plus"></span> Novo Exame</button>
+    </div>
+<form class="form-inline">
+        <div class="form-group">
+            <label >Busca</label>
+            <input type="text" ng-model="search" class="form-control" placeholder="qualquer texto">
+        </div>
+    </form>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th ng-click="sort('ano')">Ano
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='ano'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                 </th>
+                <th ng-click="sort('tempo')">Tempo
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='tempo'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('instruccoes')">instruccoes
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='instruccoes'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="exame in exames|orderBy:sortKey:reverse|filter:search" >
+                <td><a data-ng-href="#!/exames/{{exame._id}}"> {{exame.ano}} </a></td>
+                <td>{{exame.ano}}</td>
+                <td>{{exame.tempo}}</td>
+                <td>{{exame.disciplina.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="alert alert-warning text-center" data-ng-hide="!exames.$resolved || exames.length">
+    	No Exames yet, why don't you <a href="/#!/exames/create">create one</a>?
+    </div>
+</section>

@@ -1,0 +1,17 @@
+<section data-ng-controller="UtentesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Lista de Participantes, Ordenado pela Criacao</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="utente in utentes" data-ng-href="#!/utentes/{{utente._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Criado em
+				<span data-ng-bind="utente.created | date:'medium'"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="utente.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!utentes.$resolved || utentes.length">
+    	No Utentes yet, why don't you <a href="/#!/utentes/create">create one</a>?
+    </div>
+</section>

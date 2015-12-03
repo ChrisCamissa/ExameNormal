@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 class="example">A heading with class="example"</h2>
+<p>A paragraph with class="example".</p> 
+
+<p>Click the button to add a background color to the first element in the document with class="example".</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    console.log(document.querySelector(".example").attributes); //.style.backgroundColor = "red";
+    console.log(document.querySelector(".example").setAttribute("class","classe"));
+    console.log(document.querySelector(".classe"));
+}
+</script>
+
+</body>
+</html>

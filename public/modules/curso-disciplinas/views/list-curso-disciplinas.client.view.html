@@ -1,0 +1,19 @@
+<section data-ng-controller="CursoDisciplinasController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Curso disciplinas</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="cursoDisciplina in cursoDisciplinas" data-ng-href="#!/curso-disciplinas/{{cursoDisciplina._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="cursoDisciplina.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="cursoDisciplina.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="cursoDisciplina.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!cursoDisciplinas.$resolved || cursoDisciplinas.length">
+    	No Curso disciplinas yet, why don't you <a href="/#!/curso-disciplinas/create">create one</a>?
+    </div>
+</section>
